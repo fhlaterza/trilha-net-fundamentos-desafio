@@ -47,6 +47,11 @@ public class Estacionamento
             // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
             // *IMPLEMENTE AQUI*
             // IMPLEMENTADO!!
+
+            // TODO: Remover a placa digitada da lista de veículos
+            // *IMPLEMENTE AQUI*
+            // IMPLEMENTADO!!
+
             Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
             decimal horas= 0, valorTotal=0;
             string inputHoras = Console.ReadLine();
@@ -54,16 +59,13 @@ public class Estacionamento
             if (h)
             {   
                 valorTotal = precoInicial + precoPorHora * horas;
+                veiculos.Remove(placa);
+                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             } 
             else {
                 Console.WriteLine("Você precisa digitar um número válido de horas");
             }; 
             
-            // TODO: Remover a placa digitada da lista de veículos
-            // *IMPLEMENTE AQUI*
-            // IMPLEMENTADO!!
-            veiculos.Remove(placa);
-            Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
         }
         else
         {
