@@ -16,7 +16,18 @@ public class Estacionamento
     {
         // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
         // *IMPLEMENTE AQUI*
+        // IMPLEMENTADO!!
         Console.WriteLine("Digite a placa do veículo para estacionar:");
+        string placa = Console.ReadLine();
+        if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+        {
+            Console.WriteLine("Placa já está estacionada!");
+        }
+        else {
+            Console.WriteLine($"Veiculo {placa} foi estacionado com sucesso!");
+            veiculos.Add(placa);
+        }
+
     }
 
     public void RemoverVeiculo()
@@ -25,22 +36,33 @@ public class Estacionamento
 
         // Pedir para o usuário digitar a placa e armazenar na variável placa
         // *IMPLEMENTE AQUI*
-        string placa = "";
+        // IMPLEMENTADO!!
+        string placa = Console.ReadLine();
 
         // Verifica se o veículo existe
         if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
         {
-            Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-
+            
             // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
             // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
             // *IMPLEMENTE AQUI*
-            double horas = 0;
-            decimal valorTotal = 0; 
-
+            // IMPLEMENTADO!!
+            Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+            decimal horas= 0, valorTotal=0;
+            string inputHoras = Console.ReadLine();
+            bool h = decimal.TryParse(inputHoras, out horas);
+            if (h)
+            {   
+                valorTotal = precoInicial + precoPorHora * horas;
+            } 
+            else {
+                Console.WriteLine("Você precisa digitar um número válido de horas");
+            }; 
+            
             // TODO: Remover a placa digitada da lista de veículos
             // *IMPLEMENTE AQUI*
-
+            // IMPLEMENTADO!!
+            veiculos.Remove(placa);
             Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
         }
         else
@@ -56,7 +78,12 @@ public class Estacionamento
         {
             Console.WriteLine("Os veículos estacionados são:");
             // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-            // *IMPLEMENTE AQUI*
+            // *IMPLEMENTE AQUI*]
+            // IMPLEMENTADO!!
+            foreach(string placa in veiculos)
+            {
+                Console.WriteLine($"Veiculo {placa} estacionado.");
+            }
         }
         else
         {
